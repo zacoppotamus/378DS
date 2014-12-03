@@ -12,7 +12,7 @@ p7 <- ggplot(Rated9or10, aes(x = RATING, y = COST)) + geom_point() + facet_wrap(
 p7
 p8 <- ggplot(Rated9or10, aes(x = RATING, y = COST)) + geom_point() + facet_wrap(~STATE)
 p8
-p10 <- ggplot(TexasCostByProcedure, aes(x = Description, y = UNINSUREDCOST)) + geom_point() + coord_flip()
+p10 <- ggplot(TexasCostByProcedure, aes(x = PROCEDURE, y = UNINSUREDCOST)) + geom_point() + coord_flip()
 p10
 p11 <- ggplot(TexasQuery, aes(x = RATING, y = COST)) + geom_point() + facet_wrap(~PROCEDURE)
 p11

@@ -125,11 +125,11 @@ NotRecommend = subset(CostVSRating, QUESTION == 'H_RECMND_DN')
 TexasQuery = subset(CostVSRating, STATE == 'TX')
 AustinQuery = subset(TexasQuery, REGION == 'TX - Austin')
 
-AverageCostBy910Rating <- aggregate(cbind(COST, INSUREDCOST) ~ REGION, Rated9or10, mean)
+AverageCostBy910Rating <- aggregate(cbind(COST, INSUREDCOST) ~ PROCEDURE, Rated9or10, mean)
 CheaperOutpatient = subset(AverageCostBy910Rating, COST < 2000)
 
 InpatientVisits$TOTALPAYMENTS <- as.numeric(InpatientVisits$TOTALPAYMENTS)
 
 p <- subset(OutpatientVisits, APCID == 12)
 p <- mean(p$AVERAGESUBMITTEDCHARGES)
-TexasCostByProcedure <- aggregate(INSUREDCOST ~ REGION, TexasQuery, mean)
+TexasCostByProcedure <- aggregate(INSUREDCOST ~ PROCEDURE, TexasQuery, mean)
