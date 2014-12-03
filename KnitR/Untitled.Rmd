@@ -80,7 +80,7 @@ This was less true for those 65 and older, however, who were the least likely ag
 ##Medicare and Health Care Access
 Being over 62 was also a factor for falling into the group we found was most likely to receive care at 98.4%
 
-![](Screenshots/MostLikely.jpg)
+![](Screenshots/MostLikely.png)
 
 ##Medicare and Health Care Access
 However, those uninsured and 65 and over fell into the group of people least likely to receive care, as found by an Oracle clustering model.
