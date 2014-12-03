@@ -52,7 +52,29 @@ We did see that insured cost was highly correlated with insured cost:
 
 ![](Screenshots/UninsuredVSInsured.jpg)
 
-And that states with high costs for insured patients tended towards voting Democratic, with younger and sparser populations. 
+
+##Factors Affecting Medicare Costs and Copay
+We wanted to see if there were any states that stood out with higher costs in both Medicare and copay costs. Furtermore, we wanted to see if there were any common factors among these high-cost states.
+
+###Clustering on Medicare Costs and Copay
+![](img/Pics/clusters.png)  
+
+###Medicare Payments (highest cluster)
+*WY, *SD, OR, NY, NJ, MA, *ID, HI, DE, DC, CT, CA, AZ, *AK
+![](img/Pics/Medicarecost.png)
+
+###Copay (highest cluster)
+*WY, UT, *SD, NV, *ID, HI, *AK
+![](img/Pics/Copaycost.png)
+
+###Combined Cluster (highest cluster)
+*WY, UT, *SD, NV, *ID, HI, *AK
+![](img/Pics/combinedcluster.png)
+
+###Total Cost
+Intersection of the highest Medicare and Copay clusters yielded 4 states: Wyoming, Alaska, South Dakota, and Idaho.  These states with high costs for insured patients tended towards voting Democratic and have low populations. 
+
+![](Screenshots/Population.jpg)
 
 ##Cost and Health Care Access
 We also found that, possibly because of the high cost of medical care, there were a large number of people forgoing medical care because of cost.
@@ -78,7 +100,7 @@ This was less true for those 65 and older, however, who were the least likely ag
 ![](Screenshots/ForgoAge.jpg)
 
 ##Medicare and Health Care Access
-Being over 62 was also a factor for falling into the group we found was most likely to receive care at 98.4%
+Being over 62 was also a factor for falling into the group we found was most likely to receive care at 98.81%
 
 ![](Screenshots/MostLikely.png)
 
@@ -92,7 +114,7 @@ Node 85 was the least likely group to receive care, at 82.65%.
 In our research, we also wanted to identify factors with high correlation to the existence of depression or other mental health disorders.
 
 ###Dataset
-The dataset which was used included answers from a phone survey that took place in 2011-2012. Most questions related to behaviors resulting in leading causes of premature mortality and morbidity among adults. Over 139.000 responses were collected to 177 such questions. 
+The dataset which was used included answers from a phone survey that took place in 2011-2012. Most questions related to behaviors resulting in leading causes of premature mortality and morbidity among adults. Over 139,000 responses were collected to 177 such questions. 
 
 ##Selected Attributes
 18 attributes were chosen and extracted from the dataset as the basis of our examination in order to determine which factors have the highest correlation to mental disorders or depression. After all null values were eliminated from our selection, we had a remaining 108.544 rows.
@@ -146,54 +168,3 @@ distinct value of each categorical attribute. The coefficients are all non-negat
 ![](img/extendedDepression.jpg)
 ![](img/ageEducationSex.jpg)
 ![](img/veteransSmokersBMI.jpg)
-
-
-##Factors Affecting Medicare Costs and Copay
-We wanted to see if there were any states that stood out with higher costs in both Medicare and copay costs. Furtermore, we wanted to see if there were any common factors among these high-cost states.
-
-###Clustering on Medicare Costs and Copay
-![](img/Pics/clusters.png)	
-
-###Medicare Payments (highest cluster)
-*WY, *SD, OR, NY, NJ, MA, *ID, HI, DE, DC, CT, CA, AZ, *AK
-![](img/Pics/Medicarecost.png)
-
-###Copay (highest cluster)
-*WY, UT, *SD, NV, *ID, HI, *AK
-![](img/Pics/Copaycost.png)
-
-###Combined Cluster (highest cluster)
-*WY, UT, *SD, NV, *ID, HI, *AK
-![](img/Pics/combinedcluster.png)
-
-###Total Cost
-Intersection of the highest Medicare and Copay clusters yielded 4 states: 
-Wyoming, Alaska, South Dakota, and Idaho
-
-###Joined Data
-The data for the 4 states were filtered and isolated to be compared to other datasets to see if there was any common factors among the states. 
-
-The datasets chosen were: Presidential Election and Crime Rates
-
-![](img/Pics/orcl1.png)
-
-###Presidential Election 2012
-With the joined data, an explore data was made - grouped by the winning candidate
-The outcome:
-- SD: Obama
-- ID: Obama
-- WY: Romney
-- AK: Obama
-
-A democratic majority persists the most expensive Medicare and Copay states
-
-![](img/Pics/pres.png)
-
-###Crime Rates
-Joining the 4 states' data with Crime Rates, the following graph was produced:
-
-![](img/Pics/crime.png)
-
-The colors indicate crime rates, and the crime rate numbers were produced by the number of crimes tha occured in each state over a course of 50 years.
-
-No correlation was found for Crime Rates and Medicare/Copay costs.
