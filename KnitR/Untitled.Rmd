@@ -39,22 +39,22 @@ And slightly more so nationally:
 ![](Screenshots/VolumeVSCostTexas.jpg)
 
 ##Hosptial Cost and Patient Quality
-And although we found that cost also had a slight correlation with hospital quality locally:
+And although we found that higher cost also had a slight correlation with hospital quality locally:
 ![](Screenshots/AustinCopayRating.jpg)
 ![](Screenshots/TotalInsuredVSQuality.jpg)
 
 ##At National Level, no correlation between hospital quality and cost:
-Bu that correlation dropped off at the national level:
+...that correlation dropped off when the view was expanded to the national level:
 ![](Screenshots/TotalInsuredVSQualityNational.jpg)
 
 ##So other than patient volume, is there anything else we can point to to explain such wide disparities in cost as this?
-We did see that insured cost was highly correlated with insured cost:
+And we can see by breaking the data down by procedure that that different procedure specializations between hospitals also aren't the driving factor in cost disparity.  In fact, the only thing positively cooralated here is the cost for insured patients to the cost for uninsured patients.
 
 ![](Screenshots/UninsuredVSInsured.jpg)
 
 
 ##Factors Affecting Medicare Costs and Copay
-To find other correlations, we wanted to see if there were any states that stood out with higher costs in both Medicare and copay costs and see if we could find any common factors among these high-cost states.
+To find other possible correlations with high cost, we wanted to see if there were any states that stood out with higher costs in both Medicare reinbursements and patient copay costs and see if we could find any common factors among these high-cost states.
 
 ##Clustering on Medicare Costs and Copay
 ![](img/Pics/clusters.png)  
