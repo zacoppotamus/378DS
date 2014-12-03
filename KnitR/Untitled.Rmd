@@ -44,7 +44,7 @@ And although we found that cost also had a slight correlation with hospital qual
 ![](Screenshots/TotalInsuredVSQuality.jpg)
 
 ##At National Level, no correlation between hospital quality and cost:
-That correlation dropped off at the national level:
+Bu that correlation dropped off at the national level:
 ![](Screenshots/TotalInsuredVSQualityNational.jpg)
 
 ##So other than patient volume, is there anything else we can point to to explain such wide disparities in cost as this?
@@ -54,27 +54,32 @@ We did see that insured cost was highly correlated with insured cost:
 
 
 ##Factors Affecting Medicare Costs and Copay
-We wanted to see if there were any states that stood out with higher costs in both Medicare and copay costs. Furtermore, we wanted to see if there were any common factors among these high-cost states.
+To find other correlations, we wanted to see if there were any states that stood out with higher costs in both Medicare and copay costs and see if we could find any common factors among these high-cost states.
 
-###Clustering on Medicare Costs and Copay
+##Clustering on Medicare Costs and Copay
 ![](img/Pics/clusters.png)  
 
-###Medicare Payments (highest cluster)
+##Medicare Payments (highest cluster)
 *WY, *SD, OR, NY, NJ, MA, *ID, HI, DE, DC, CT, CA, AZ, *AK
 ![](img/Pics/Medicarecost.png)
 
-###Copay (highest cluster)
+##Copay (highest cluster)
 *WY, UT, *SD, NV, *ID, HI, *AK
 ![](img/Pics/Copaycost.png)
 
-###Combined Cluster (highest cluster)
+##Combined Cluster (highest cluster)
 *WY, UT, *SD, NV, *ID, HI, *AK
 ![](img/Pics/combinedcluster.png)
 
-###Total Cost
+##Total Cost
 Intersection of the highest Medicare and Copay clusters yielded 4 states: Wyoming, Alaska, South Dakota, and Idaho.  These states with high costs for insured patients tended towards voting Democratic and have low populations. 
 
 ![](Screenshots/Population.jpg)
+![](img/pics/pres.png)
+
+##Our most extreme outlier as well as the only Republican state, Wyoming, also had the fewest Medicares procedures per person and the highest number of physicians per person.
+![](Screenshots/procedures:population.png)
+![](Screenshots/drs:person.png)
 
 ##Cost and Health Care Access
 We also found that, possibly because of the high cost of medical care, there were a large number of people forgoing medical care because of cost.
@@ -92,7 +97,7 @@ They also tend to be poor, uninsured, and have poor mental health.
 
 ![](Screenshots/ForgoIncome.jpg)
 ![](Screenshots/ForgoInsured.jpg)
-
+![](Screenshots/ForgoMental.jpg)
 
 ##Medicare and Health Care Access
 This was less true for those 65 and older, however, who were the least likely age group to forgo medical care because of cost. 
@@ -105,7 +110,7 @@ Being over 62 was also a factor for falling into the group we found was most lik
 ![](Screenshots/MostLikely.png)
 
 ##Medicare and Health Care Access
-However, those uninsured and 65 and over fell into the group of people least likely to receive care, as found by an Oracle clustering model.
+However, those uninsured and 65 and over fell into the group of people least likely to receive care.
 Node 85 was the least likely group to receive care, at 82.65%.
 
 ![](Screenshots/LeastLikely.png)
