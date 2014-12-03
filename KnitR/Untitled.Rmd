@@ -62,19 +62,34 @@ We also found that, possibly because of the high cost of medical care, there wer
 
 ##Cost and Health Care Access
 And that the people who needed health care the most were the least likely to receive it.
+
 ![](Screenshots/ForgoHealth.jpg)
 
 ##Cost and Health Care Access
 They also tend to be poor, uninsured, and have poor mental health.
-!(Screenshots/ForgoIncome)
-!(Screenshots/ForgoInsured)
+
+![](Screenshots/ForgoIncome.jpg)
+![](Screenshots/ForgoInsured.jpg)
 
 
 ##Medicare and Health Care Access
 This was less true for those 65 and older, however, who were the least likely age group to forgo medical care because of cost. 
 
+![](Screenshots/ForgoAge.jpg)
+
+##Medicare and Health Care Access
+Being over 62 was also a factor for falling into the group we found was most likely to receive care at 98.4%
+
+![](Screenshots/MostLikely.jpg)
+
+##Medicare and Health Care Access
+However, those uninsured and 65 and over fell into the group of people least likely to receive care, as found by an Oracle clustering model.
+Node 85 was the least likely group to receive care, at 82.65%.
+
+![](Screenshots/LeastLikely.png)
+
 ##Case Study: Depression
-In our research, we wanted to identify factors with high correlation to the existence of depression or other mental health disorders.
+In our research, we also wanted to identify factors with high correlation to the existence of depression or other mental health disorders.
 
 ###Dataset
 The dataset which was used included answers from a phone survey that took place in 2011-2012. Most questions related to behaviors resulting in leading causes of premature mortality and morbidity among adults. Over 139.000 responses were collected to 177 such questions. 
