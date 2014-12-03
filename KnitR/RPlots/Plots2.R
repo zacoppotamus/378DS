@@ -8,14 +8,9 @@ p1 <- ggplot(InpatientCostByState, aes(x = STATE, y = AVGBILLEDCOST)) + geom_poi
 p1
 p2 <- ggplot(outpatientCostByState, aes(x = STATE, y = AVGBILLEDCOST)) + geom_point() + coord_flip()
 p2
+p10 <- ggplot(TexasCostByProcedure, aes(x = PROCEDURE, y = INSUREDCOST)) + geom_point() + coord_flip()
+p10
 p7 <- ggplot(Rated9or10, aes(x = RATING, y = COST)) + geom_point() + facet_wrap(~PROCEDURE)
 p7
 p8 <- ggplot(Rated9or10, aes(x = RATING, y = COST)) + geom_point() + facet_wrap(~STATE)
 p8
-p10 <- ggplot(TexasCostByProcedure, aes(x = PROCEDURE, y = INSUREDCOST)) + geom_point() + coord_flip()
-p10
-p11 <- ggplot(TexasQuery, aes(x = RATING, y = COST)) + geom_point() + facet_wrap(~PROCEDURE)
-p11
-p12 <- ggplot(AustinQuery, aes(x = RATING, y = COST)) + geom_point() + facet_wrap(~PROCEDURE)
-p12
-
