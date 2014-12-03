@@ -2,6 +2,25 @@ Medicare Presentation
 =====================
 
 ##Factors Affecting Medicare Costs and Copay
+We wanted to see if there were any states that stood out with higher costs in both Medicare and copay costs. Furtermore, we wanted to see if there were any common factors among these high-cost states.
+
+###Clustering on Medicare Costs and Copay
+![](img/Pics/clusters.png)	
+
+###Medicare Payments (highest cluster)
+*WY, *SD, OR, NY, NJ, MA, *ID, HI, DE, DC, CT, CA, AZ, *AK
+![](img/Pics/Medicarecost.png)
+
+###Copay (highest cluster)
+*WY, UT, *SD, NV, *ID, HI, *AK
+![](img/Pics/Copaycost.png)
+
+###Combined Cluster (highest cluster)
+*WY, UT, *SD, NV, *ID, HI, *AK
+![](img/Pics/combinedcluster.png)
+
+###Total Cost
+Intersection of the highest Medicare and Copay clusters yielded 4 states: Wyoming, Alaska, South Dakota, and Idaho
 
 ##Case Study: Depression
 In our research, we wanted to identify factors with high correlation to the existence of depression or other mental health disorders.
