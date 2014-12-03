@@ -77,7 +77,7 @@ Intersection of the highest Medicare and Copay clusters yielded 4 states: Wyomin
 ![](Screenshots/Population.jpg)
 ![](img/pics/pres.png)
 
-##Our most extreme outlier as well as the only Republican state, Wyoming, also had the fewest Medicares procedures per person and the highest number of physicians per person.
+##Our most extreme outlier as well as the only Republican state, Wyoming, also had the fewest Medicare procedures per person and the highest number of physicians per person.
 ![](Screenshots/procedures:population.png)
 ![](Screenshots/drs:person.png)
 
@@ -114,6 +114,9 @@ However, those uninsured and 65 and over fell into the group of people least lik
 Node 85 was the least likely group to receive care, at 82.65%.
 
 ![](Screenshots/LeastLikely.png)
+
+##Medicare and Health Care Access
+Purely in terms of access and total cost, then, we can say that the Medicare program has been extremely successful in ensuring access to health care for the vulnerable population of seniors.
 
 ##Case Study: Depression
 In our research, we also wanted to identify factors with high correlation to the existence of depression or other mental health disorders.
