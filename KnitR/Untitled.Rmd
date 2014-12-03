@@ -24,8 +24,54 @@ source("RPlots/Plots2.R", echo = TRUE)
 ```
 
 ##Health Care Costs: Closer to Home
-Even in Austin, there is a wide disparity in the cost of care, shown here for both insured and uninsured patients and by procedure:
-![](Screenshots/Untitled.pdf)
+Even within Austin, there is a wide disparity in the cost of care, shown here for both insured and uninsured patients and by procedure:
+
+![](Screenshots/Inpatient-Insured.jpg)
+![](Screenshots/Inpatient-Uninsured.jpg)
+
+##Hospital Cost and Patient Volume
+We did find that higher cost was somewhat positively correlated with hospital volume (the number of patients seen):
+
+![](Screenshots/VolumeAndCost.jpg)
+
+And slightly more so nationally:
+
+![](Screenshots/VolumeVSCostTexas.jpg)
+
+##Hosptial Cost and Patient Quality
+And although we found that cost also had a slight correlation with hospital quality locally:
+![](Screenshots/AustinCopayRating.jpg)
+![](Screenshots/TotalInsuredVSQuality.jpg)
+
+##At National Level, no correlation between hospital quality and cost:
+That correlation dropped off at the national level:
+![](Screenshots/TotalInsuredVSQualityNational.jpg)
+
+##So other than patient volume, is there anything else we can point to to explain such wide disparities in cost as this?
+We did see that insured cost was highly correlated with insured cost:
+
+![](Screenshots/UninsuredVSInsured.jpg)
+
+And that states with high costs for insured patients tended towards voting Democratic, with younger and sparser populations. 
+
+##Cost and Health Care Access
+We also found that, possibly because of the high cost of medical care, there were a large number of people forgoing medical care because of cost.
+
+![](Screenshots/ForgoCare2.jpg)
+![](Screenshots/ForgoCare.jpg)
+
+##Cost and Health Care Access
+And that the people who needed health care the most were the least likely to receive it.
+![](Screenshots/ForgoHealth.jpg)
+
+##Cost and Health Care Access
+They also tend to be poor, uninsured, and have poor mental health.
+!(Screenshots/ForgoIncome)
+!(Screenshots/ForgoInsured)
+
+
+##Medicare and Health Care Access
+This was less true for those 65 and older, however, who were the least likely age group to forgo medical care because of cost. 
 
 ##Case Study: Depression
 In our research, we wanted to identify factors with high correlation to the existence of depression or other mental health disorders.
