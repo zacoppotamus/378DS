@@ -99,12 +99,12 @@ PatientsRated9or10$ANSWERPERCENT <- as.numeric(PatientsRated9or10$ANSWERPERCENT)
 CostVSRating = dbGetQuery(con, "
                           Select Reviews.Answerpercent AS Rating, Reviews.SurveyID AS Question, 
                           Outpatient.AverageSubmittedCharges AS Cost, Outpatient.AVERAGETOTALPAYMENTS AS InsuredCost,
-                          Providers.Name as Name, Providers.State, Providers.HOSPITALREFERRALREGION AS Region
+                          Providers.Name as Name, Providers.State, Providers.HOSPITALREFERRALREGION AS Region, OutpatientServices.Description as Procedure
                           From Reviews
                           INNER JOIN Outpatient
                           ON Reviews.ProviderID = Outpatient.ProviderID 
-                          INNER JOIN Outpatient
-                          ON Outpatient.ID = Outpatient.APCID
+                          INNER JOIN OutpatientServices
+                          ON OutpatientServices.ID = Outpatient.APCID
                           INNER JOIN Providers
                           On Outpatient.ProviderID = Providers.ID
                           ")
