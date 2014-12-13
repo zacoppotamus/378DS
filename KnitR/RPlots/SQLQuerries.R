@@ -99,12 +99,12 @@ PatientsRated9or10$ANSWERPERCENT <- as.numeric(PatientsRated9or10$ANSWERPERCENT)
 CostVSRating = dbGetQuery(con, "
                           Select Reviews.Answerpercent AS Rating, Reviews.SurveyID AS Question, 
                           Outpatient.AverageSubmittedCharges AS Cost, Outpatient.AVERAGETOTALPAYMENTS AS InsuredCost,
-                          Providers.Name as Name, Providers.State, Providers.HOSPITALREFERRALREGION AS Region
+                          Providers.Name as Name, Providers.State, Providers.HOSPITALREFERRALREGION AS Region, OutpatientServices.Description as Procedure
                           From Reviews
                           INNER JOIN Outpatient
                           ON Reviews.ProviderID = Outpatient.ProviderID 
-                          INNER JOIN Outpatient
-                          ON Outpatient.ID = Outpatient.APCID
+                          INNER JOIN OutpatientServices
+                          ON OutpatientServices.ID = Outpatient.APCID
                           INNER JOIN Providers
                           On Outpatient.ProviderID = Providers.ID
                           ")
@@ -125,11 +125,11 @@ NotRecommend = subset(CostVSRating, QUESTION == 'H_RECMND_DN')
 TexasQuery = subset(CostVSRating, STATE == 'TX')
 AustinQuery = subset(TexasQuery, REGION == 'TX - Austin')
 
-AverageCostBy910Rating <- aggregate(cbind(COST, INSUREDCOST) ~ REGION, Rated9or10, mean)
+AverageCostBy910Rating <- aggregate(cbind(COST, INSUREDCOST) ~ PROCEDURE, Rated9or10, mean)
 CheaperOutpatient = subset(AverageCostBy910Rating, COST < 2000)
 
 InpatientVisits$TOTALPAYMENTS <- as.numeric(InpatientVisits$TOTALPAYMENTS)
 
 p <- subset(OutpatientVisits, APCID == 12)
 p <- mean(p$AVERAGESUBMITTEDCHARGES)
-TexasCostByProcedure <- aggregate(INSUREDCOST ~ REGION, TexasQuery, mean)
+TexasCostByProcedure <- aggregate(INSUREDCOST ~ PROCEDURE, TexasQuery, mean)

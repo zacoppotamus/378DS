@@ -1,0 +1,2219 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<workbook source-platform='mac' version='8.3' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <!-- build 8200.14.0819.2015                                -->
+  <preferences>
+  </preferences>
+  <datasources>
+    <datasource caption='Providers+' inline='true' name='textscan.41900.733258669000' version='8.3'>
+      <connection class='textscan' directory='/Users/alyshialedlie/Documents/Medicare' filename='Providers.csv'>
+        <relation join='inner' type='join'>
+          <clause type='join'>
+            <expression op='='>
+              <expression op='[Providers#csv].[ID]'>
+              </expression>
+              <expression op='[InpatientVisits#csv].[ID]'>
+              </expression>
+            </expression>
+          </clause>
+          <relation join='inner' type='join'>
+            <clause type='join'>
+              <expression op='='>
+                <expression op='[Providers#csv].[ID]'>
+                </expression>
+                <expression op='[hospital_reviews#csv].[ID]'>
+                </expression>
+              </expression>
+            </clause>
+            <relation join='inner' type='join'>
+              <clause type='join'>
+                <expression op='='>
+                  <expression op='[Providers#csv].[ID]'>
+                  </expression>
+                  <expression op='[OutpatientVisits#csv].[ID]'>
+                  </expression>
+                </expression>
+              </clause>
+              <relation name='Providers#csv' table='[Providers#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                  <column datatype='integer' name='ID' ordinal='0' />
+                  <column datatype='string' name='Name' ordinal='1' />
+                  <column datatype='string' name='StreetAddress' ordinal='2' />
+                  <column datatype='string' name='City' ordinal='3' />
+                  <column datatype='string' name='State' ordinal='4' />
+                  <column datatype='integer' name='ZipCode' ordinal='5' />
+                  <column datatype='string' name='HospitalReferralRegion' ordinal='6' />
+                </columns>
+              </relation>
+              <relation name='OutpatientVisits#csv' table='[OutpatientVisits#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                  <column datatype='integer' name='ID' ordinal='0' />
+                  <column datatype='integer' name='APCID' ordinal='1' />
+                  <column datatype='integer' name='ProviderID' ordinal='2' />
+                  <column datatype='integer' name='OutpatientServices' ordinal='3' />
+                  <column datatype='real' name='AverageSubmittedCharges' ordinal='4' />
+                  <column datatype='real' name='AverageTotalPayments' ordinal='5' />
+                  <column datatype='integer' name='Year' ordinal='6' />
+                </columns>
+              </relation>
+            </relation>
+            <relation name='hospital_reviews#csv' table='[hospital_reviews#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                <column datatype='integer' name='ID' ordinal='0' />
+                <column datatype='integer' name='ProviderID' ordinal='1' />
+                <column datatype='string' name='SurveyID' ordinal='2' />
+                <column datatype='integer' name='AnswerPercent' ordinal='3' />
+                <column datatype='string' name='CompletedServeys' ordinal='4' />
+                <column datatype='integer' name='ResponseRate' ordinal='5' />
+                <column datatype='integer' name='Footnote' ordinal='6' />
+                <column datatype='date' name='StartDate' ordinal='7' />
+                <column datatype='date' name='EndDate' ordinal='8' />
+              </columns>
+            </relation>
+          </relation>
+          <relation name='InpatientVisits#csv' table='[InpatientVisits#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+              <column datatype='integer' name='ID' ordinal='0' />
+              <column datatype='integer' name='DRGID' ordinal='1' />
+              <column datatype='integer' name='ProviderID' ordinal='2' />
+              <column datatype='integer' name='NumDischargedPatients' ordinal='3' />
+              <column datatype='real' name='CoveredCharges' ordinal='4' />
+              <column datatype='real' name='TotalPayments' ordinal='5' />
+              <column datatype='real' name='MedicarePayment' ordinal='6' />
+              <column datatype='integer' name='Year' ordinal='7' />
+            </columns>
+          </relation>
+        </relation>
+        <cols>
+          <map key='[APCID]' value='[OutpatientVisits#csv].[APCID]' />
+          <map key='[AnswerPercent]' value='[hospital_reviews#csv].[AnswerPercent]' />
+          <map key='[AverageSubmittedCharges]' value='[OutpatientVisits#csv].[AverageSubmittedCharges]' />
+          <map key='[AverageTotalPayments]' value='[OutpatientVisits#csv].[AverageTotalPayments]' />
+          <map key='[City]' value='[Providers#csv].[City]' />
+          <map key='[CompletedServeys]' value='[hospital_reviews#csv].[CompletedServeys]' />
+          <map key='[CoveredCharges]' value='[InpatientVisits#csv].[CoveredCharges]' />
+          <map key='[DRGID]' value='[InpatientVisits#csv].[DRGID]' />
+          <map key='[EndDate]' value='[hospital_reviews#csv].[EndDate]' />
+          <map key='[Footnote]' value='[hospital_reviews#csv].[Footnote]' />
+          <map key='[HospitalReferralRegion]' value='[Providers#csv].[HospitalReferralRegion]' />
+          <map key='[ID (InpatientVisits.csv)]' value='[InpatientVisits#csv].[ID]' />
+          <map key='[ID (OutpatientVisits.csv)]' value='[OutpatientVisits#csv].[ID]' />
+          <map key='[ID (hospital_reviews.csv)]' value='[hospital_reviews#csv].[ID]' />
+          <map key='[ID]' value='[Providers#csv].[ID]' />
+          <map key='[MedicarePayment]' value='[InpatientVisits#csv].[MedicarePayment]' />
+          <map key='[Name]' value='[Providers#csv].[Name]' />
+          <map key='[NumDischargedPatients]' value='[InpatientVisits#csv].[NumDischargedPatients]' />
+          <map key='[OutpatientServices]' value='[OutpatientVisits#csv].[OutpatientServices]' />
+          <map key='[ProviderID (InpatientVisits.csv)]' value='[InpatientVisits#csv].[ProviderID]' />
+          <map key='[ProviderID (hospital_reviews.csv)]' value='[hospital_reviews#csv].[ProviderID]' />
+          <map key='[ProviderID]' value='[OutpatientVisits#csv].[ProviderID]' />
+          <map key='[ResponseRate]' value='[hospital_reviews#csv].[ResponseRate]' />
+          <map key='[StartDate]' value='[hospital_reviews#csv].[StartDate]' />
+          <map key='[State]' value='[Providers#csv].[State]' />
+          <map key='[StreetAddress]' value='[Providers#csv].[StreetAddress]' />
+          <map key='[SurveyID]' value='[hospital_reviews#csv].[SurveyID]' />
+          <map key='[TotalPayments]' value='[InpatientVisits#csv].[TotalPayments]' />
+          <map key='[Year (InpatientVisits.csv)]' value='[InpatientVisits#csv].[Year]' />
+          <map key='[Year]' value='[OutpatientVisits#csv].[Year]' />
+          <map key='[ZipCode]' value='[Providers#csv].[ZipCode]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>ID</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[ID]</local-name>
+            <parent-name>[Providers#csv]</parent-name>
+            <remote-alias>ID</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Name</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Name]</local-name>
+            <parent-name>[Providers#csv]</parent-name>
+            <remote-alias>Name</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteCollation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4294967292</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>StreetAddress</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[StreetAddress]</local-name>
+            <parent-name>[Providers#csv]</parent-name>
+            <remote-alias>StreetAddress</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteCollation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4294967292</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>City</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[City]</local-name>
+            <parent-name>[Providers#csv]</parent-name>
+            <remote-alias>City</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteCollation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4294967292</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>State</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[State]</local-name>
+            <parent-name>[Providers#csv]</parent-name>
+            <remote-alias>State</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteCollation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4294967292</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ZipCode</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[ZipCode]</local-name>
+            <parent-name>[Providers#csv]</parent-name>
+            <remote-alias>ZipCode</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>HospitalReferralRegion</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[HospitalReferralRegion]</local-name>
+            <parent-name>[Providers#csv]</parent-name>
+            <remote-alias>HospitalReferralRegion</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteCollation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4294967292</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name></remote-name>
+            <remote-type>0</remote-type>
+            <parent-name>[Providers#csv]</parent-name>
+            <remote-alias></remote-alias>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ID</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[ID (OutpatientVisits.csv)]</local-name>
+            <parent-name>[OutpatientVisits#csv]</parent-name>
+            <remote-alias>ID</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>APCID</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[APCID]</local-name>
+            <parent-name>[OutpatientVisits#csv]</parent-name>
+            <remote-alias>APCID</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ProviderID</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[ProviderID]</local-name>
+            <parent-name>[OutpatientVisits#csv]</parent-name>
+            <remote-alias>ProviderID</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>OutpatientServices</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[OutpatientServices]</local-name>
+            <parent-name>[OutpatientVisits#csv]</parent-name>
+            <remote-alias>OutpatientServices</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>AverageSubmittedCharges</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[AverageSubmittedCharges]</local-name>
+            <parent-name>[OutpatientVisits#csv]</parent-name>
+            <remote-alias>AverageSubmittedCharges</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>AverageTotalPayments</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[AverageTotalPayments]</local-name>
+            <parent-name>[OutpatientVisits#csv]</parent-name>
+            <remote-alias>AverageTotalPayments</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Year</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Year]</local-name>
+            <parent-name>[OutpatientVisits#csv]</parent-name>
+            <remote-alias>Year</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name></remote-name>
+            <remote-type>0</remote-type>
+            <parent-name>[OutpatientVisits#csv]</parent-name>
+            <remote-alias></remote-alias>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ID</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[ID (hospital_reviews.csv)]</local-name>
+            <parent-name>[hospital_reviews#csv]</parent-name>
+            <remote-alias>ID</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ProviderID</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[ProviderID (hospital_reviews.csv)]</local-name>
+            <parent-name>[hospital_reviews#csv]</parent-name>
+            <remote-alias>ProviderID</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>SurveyID</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[SurveyID]</local-name>
+            <parent-name>[hospital_reviews#csv]</parent-name>
+            <remote-alias>SurveyID</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteCollation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4294967292</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>AnswerPercent</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[AnswerPercent]</local-name>
+            <parent-name>[hospital_reviews#csv]</parent-name>
+            <remote-alias>AnswerPercent</remote-alias>
+            <ordinal>19</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>CompletedServeys</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[CompletedServeys]</local-name>
+            <parent-name>[hospital_reviews#csv]</parent-name>
+            <remote-alias>CompletedServeys</remote-alias>
+            <ordinal>20</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteCollation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4294967292</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ResponseRate</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[ResponseRate]</local-name>
+            <parent-name>[hospital_reviews#csv]</parent-name>
+            <remote-alias>ResponseRate</remote-alias>
+            <ordinal>21</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Footnote</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Footnote]</local-name>
+            <parent-name>[hospital_reviews#csv]</parent-name>
+            <remote-alias>Footnote</remote-alias>
+            <ordinal>22</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>StartDate</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[StartDate]</local-name>
+            <parent-name>[hospital_reviews#csv]</parent-name>
+            <remote-alias>StartDate</remote-alias>
+            <ordinal>23</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;date&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>EndDate</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[EndDate]</local-name>
+            <parent-name>[hospital_reviews#csv]</parent-name>
+            <remote-alias>EndDate</remote-alias>
+            <ordinal>24</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;date&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name></remote-name>
+            <remote-type>0</remote-type>
+            <parent-name>[hospital_reviews#csv]</parent-name>
+            <remote-alias></remote-alias>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ID</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[ID (InpatientVisits.csv)]</local-name>
+            <parent-name>[InpatientVisits#csv]</parent-name>
+            <remote-alias>ID</remote-alias>
+            <ordinal>26</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>DRGID</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[DRGID]</local-name>
+            <parent-name>[InpatientVisits#csv]</parent-name>
+            <remote-alias>DRGID</remote-alias>
+            <ordinal>27</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ProviderID</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[ProviderID (InpatientVisits.csv)]</local-name>
+            <parent-name>[InpatientVisits#csv]</parent-name>
+            <remote-alias>ProviderID</remote-alias>
+            <ordinal>28</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>NumDischargedPatients</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[NumDischargedPatients]</local-name>
+            <parent-name>[InpatientVisits#csv]</parent-name>
+            <remote-alias>NumDischargedPatients</remote-alias>
+            <ordinal>29</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>CoveredCharges</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[CoveredCharges]</local-name>
+            <parent-name>[InpatientVisits#csv]</parent-name>
+            <remote-alias>CoveredCharges</remote-alias>
+            <ordinal>30</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>TotalPayments</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[TotalPayments]</local-name>
+            <parent-name>[InpatientVisits#csv]</parent-name>
+            <remote-alias>TotalPayments</remote-alias>
+            <ordinal>31</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>MedicarePayment</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[MedicarePayment]</local-name>
+            <parent-name>[InpatientVisits#csv]</parent-name>
+            <remote-alias>MedicarePayment</remote-alias>
+            <ordinal>32</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Year</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Year (InpatientVisits.csv)]</local-name>
+            <parent-name>[InpatientVisits#csv]</parent-name>
+            <remote-alias>Year</remote-alias>
+            <ordinal>33</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name></remote-name>
+            <remote-type>0</remote-type>
+            <parent-name>[InpatientVisits#csv]</parent-name>
+            <remote-alias></remote-alias>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column aggregation='Sum' caption='Apcid' datatype='integer' name='[APCID]' role='dimension' type='ordinal'>
+      </column>
+      <column caption='Answer Percent' datatype='integer' name='[AnswerPercent]' role='measure' type='quantitative'>
+      </column>
+      <column caption='Average Submitted Charges' datatype='real' name='[AverageSubmittedCharges]' role='measure' type='quantitative'>
+      </column>
+      <column caption='Average Total Payments' datatype='real' name='[AverageTotalPayments]' role='measure' type='quantitative'>
+      </column>
+      <column datatype='string' name='[City]' role='dimension' semantic-role='[City].[Name]' type='nominal'>
+      </column>
+      <column caption='Completed Serveys' datatype='string' name='[CompletedServeys]' role='dimension' type='nominal'>
+      </column>
+      <column caption='Covered Charges' datatype='real' name='[CoveredCharges]' role='measure' type='quantitative'>
+      </column>
+      <column aggregation='Sum' caption='Drgid' datatype='integer' name='[DRGID]' role='dimension' type='ordinal'>
+      </column>
+      <column caption='End Date' datatype='date' name='[EndDate]' role='dimension' type='ordinal'>
+      </column>
+      <column aggregation='Sum' datatype='integer' name='[Footnote]' role='dimension' type='ordinal'>
+      </column>
+      <column caption='Hospital Referral Region' datatype='string' name='[HospitalReferralRegion]' role='dimension' type='nominal'>
+      </column>
+      <column datatype='integer' name='[ID (InpatientVisits.csv)]' role='dimension' type='ordinal'>
+      </column>
+      <column datatype='integer' name='[ID (OutpatientVisits.csv)]' role='dimension' type='ordinal'>
+      </column>
+      <column caption='ID (hospital reviews.csv)' datatype='integer' name='[ID (hospital_reviews.csv)]' role='dimension' type='ordinal'>
+      </column>
+      <column datatype='integer' name='[ID]' role='dimension' type='ordinal'>
+      </column>
+      <column caption='Medicare Payment' datatype='real' name='[MedicarePayment]' role='measure' type='quantitative'>
+      </column>
+      <column caption='Num Discharged Patients' datatype='integer' name='[NumDischargedPatients]' role='measure' type='quantitative'>
+      </column>
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column caption='Outpatient Services' datatype='integer' name='[OutpatientServices]' role='measure' type='quantitative'>
+      </column>
+      <column datatype='integer' name='[ProviderID (InpatientVisits.csv)]' role='dimension' type='ordinal'>
+      </column>
+      <column caption='ProviderID (hospital reviews.csv)' datatype='integer' name='[ProviderID (hospital_reviews.csv)]' role='dimension' type='ordinal'>
+      </column>
+      <column caption='Provider ID' datatype='integer' name='[ProviderID]' role='dimension' type='ordinal'>
+      </column>
+      <column caption='Response Rate' datatype='integer' name='[ResponseRate]' role='measure' type='quantitative'>
+      </column>
+      <column caption='Start Date' datatype='date' name='[StartDate]' role='dimension' type='ordinal'>
+      </column>
+      <column datatype='string' name='[State]' role='dimension' semantic-role='[State].[Name]' type='nominal'>
+      </column>
+      <column caption='Street Address' datatype='string' name='[StreetAddress]' role='dimension' type='nominal'>
+      </column>
+      <column caption='Survey ID' datatype='string' name='[SurveyID]' role='dimension' type='nominal'>
+      </column>
+      <column caption='Total Payments' datatype='real' name='[TotalPayments]' role='measure' type='quantitative'>
+      </column>
+      <column datatype='integer' name='[Year (InpatientVisits.csv)]' role='dimension' type='quantitative'>
+      </column>
+      <column datatype='integer' name='[Year]' role='dimension' type='quantitative'>
+      </column>
+      <column caption='Zip Code' datatype='integer' default-format='*00000' name='[ZipCode]' role='dimension' semantic-role='[ZipCode].[Name]' type='ordinal'>
+      </column>
+      <layout dim-ordering='alphabetic' dim-percentage='0.5' measure-ordering='alphabetic' measure-percentage='0.4' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+    </datasource>
+    <datasource caption='OutpatientVisits+' inline='true' name='textscan.41900.744703298600' version='8.3'>
+      <connection class='textscan' directory='/Users/alyshialedlie/Documents/Medicare' filename='OutpatientVisits.csv'>
+        <relation join='inner' type='join'>
+          <clause type='join'>
+            <expression op='='>
+              <expression op='[OutpatientVisits#csv].[ID]'>
+              </expression>
+              <expression op='[OutpatientServices#csv].[ID]'>
+              </expression>
+            </expression>
+          </clause>
+          <relation join='inner' type='join'>
+            <clause type='join'>
+              <expression op='='>
+                <expression op='[OutpatientVisits#csv].[ID]'>
+                </expression>
+                <expression op='[Providers#csv].[ID]'>
+                </expression>
+              </expression>
+            </clause>
+            <relation name='OutpatientVisits#csv' table='[OutpatientVisits#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                <column datatype='integer' name='ID' ordinal='0' />
+                <column datatype='integer' name='APCID' ordinal='1' />
+                <column datatype='integer' name='ProviderID' ordinal='2' />
+                <column datatype='integer' name='OutpatientServices' ordinal='3' />
+                <column datatype='real' name='AverageSubmittedCharges' ordinal='4' />
+                <column datatype='real' name='AverageTotalPayments' ordinal='5' />
+                <column datatype='integer' name='Year' ordinal='6' />
+              </columns>
+            </relation>
+            <relation name='Providers#csv' table='[Providers#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                <column datatype='integer' name='ID' ordinal='0' />
+                <column datatype='string' name='Name' ordinal='1' />
+                <column datatype='string' name='StreetAddress' ordinal='2' />
+                <column datatype='string' name='City' ordinal='3' />
+                <column datatype='string' name='State' ordinal='4' />
+                <column datatype='integer' name='ZipCode' ordinal='5' />
+                <column datatype='string' name='HospitalReferralRegion' ordinal='6' />
+              </columns>
+            </relation>
+          </relation>
+          <relation name='OutpatientServices#csv' table='[OutpatientServices#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+              <column datatype='integer' name='ID' ordinal='0' />
+              <column datatype='string' name='Description' ordinal='1' />
+            </columns>
+          </relation>
+        </relation>
+        <cols>
+          <map key='[APCID]' value='[OutpatientVisits#csv].[APCID]' />
+          <map key='[AverageSubmittedCharges]' value='[OutpatientVisits#csv].[AverageSubmittedCharges]' />
+          <map key='[AverageTotalPayments]' value='[OutpatientVisits#csv].[AverageTotalPayments]' />
+          <map key='[City]' value='[Providers#csv].[City]' />
+          <map key='[Description]' value='[OutpatientServices#csv].[Description]' />
+          <map key='[HospitalReferralRegion]' value='[Providers#csv].[HospitalReferralRegion]' />
+          <map key='[ID (OutpatientServices.csv)]' value='[OutpatientServices#csv].[ID]' />
+          <map key='[ID (Providers.csv)]' value='[Providers#csv].[ID]' />
+          <map key='[ID]' value='[OutpatientVisits#csv].[ID]' />
+          <map key='[Name]' value='[Providers#csv].[Name]' />
+          <map key='[OutpatientServices]' value='[OutpatientVisits#csv].[OutpatientServices]' />
+          <map key='[ProviderID]' value='[OutpatientVisits#csv].[ProviderID]' />
+          <map key='[State]' value='[Providers#csv].[State]' />
+          <map key='[StreetAddress]' value='[Providers#csv].[StreetAddress]' />
+          <map key='[Year]' value='[OutpatientVisits#csv].[Year]' />
+          <map key='[ZipCode]' value='[Providers#csv].[ZipCode]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>ID</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[ID]</local-name>
+            <parent-name>[OutpatientVisits#csv]</parent-name>
+            <remote-alias>ID</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>APCID</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[APCID]</local-name>
+            <parent-name>[OutpatientVisits#csv]</parent-name>
+            <remote-alias>APCID</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ProviderID</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[ProviderID]</local-name>
+            <parent-name>[OutpatientVisits#csv]</parent-name>
+            <remote-alias>ProviderID</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>OutpatientServices</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[OutpatientServices]</local-name>
+            <parent-name>[OutpatientVisits#csv]</parent-name>
+            <remote-alias>OutpatientServices</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>AverageSubmittedCharges</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[AverageSubmittedCharges]</local-name>
+            <parent-name>[OutpatientVisits#csv]</parent-name>
+            <remote-alias>AverageSubmittedCharges</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>AverageTotalPayments</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[AverageTotalPayments]</local-name>
+            <parent-name>[OutpatientVisits#csv]</parent-name>
+            <remote-alias>AverageTotalPayments</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Year</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Year]</local-name>
+            <parent-name>[OutpatientVisits#csv]</parent-name>
+            <remote-alias>Year</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name></remote-name>
+            <remote-type>0</remote-type>
+            <parent-name>[OutpatientVisits#csv]</parent-name>
+            <remote-alias></remote-alias>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ID</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[ID (Providers.csv)]</local-name>
+            <parent-name>[Providers#csv]</parent-name>
+            <remote-alias>ID</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Name</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Name]</local-name>
+            <parent-name>[Providers#csv]</parent-name>
+            <remote-alias>Name</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteCollation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4294967292</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>StreetAddress</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[StreetAddress]</local-name>
+            <parent-name>[Providers#csv]</parent-name>
+            <remote-alias>StreetAddress</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteCollation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4294967292</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>City</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[City]</local-name>
+            <parent-name>[Providers#csv]</parent-name>
+            <remote-alias>City</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteCollation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4294967292</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>State</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[State]</local-name>
+            <parent-name>[Providers#csv]</parent-name>
+            <remote-alias>State</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteCollation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4294967292</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ZipCode</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[ZipCode]</local-name>
+            <parent-name>[Providers#csv]</parent-name>
+            <remote-alias>ZipCode</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>HospitalReferralRegion</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[HospitalReferralRegion]</local-name>
+            <parent-name>[Providers#csv]</parent-name>
+            <remote-alias>HospitalReferralRegion</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteCollation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4294967292</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name></remote-name>
+            <remote-type>0</remote-type>
+            <parent-name>[Providers#csv]</parent-name>
+            <remote-alias></remote-alias>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ID</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[ID (OutpatientServices.csv)]</local-name>
+            <parent-name>[OutpatientServices#csv]</parent-name>
+            <remote-alias>ID</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Description</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Description]</local-name>
+            <parent-name>[OutpatientServices#csv]</parent-name>
+            <remote-alias>Description</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteCollation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4294967292</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name></remote-name>
+            <remote-type>0</remote-type>
+            <parent-name>[OutpatientServices#csv]</parent-name>
+            <remote-alias></remote-alias>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Apcid' datatype='integer' name='[APCID]' role='measure' type='quantitative'>
+      </column>
+      <column caption='Average Submitted Charges' datatype='real' name='[AverageSubmittedCharges]' role='measure' type='quantitative'>
+      </column>
+      <column caption='Average Total Payments' datatype='real' name='[AverageTotalPayments]' role='measure' type='quantitative'>
+      </column>
+      <column datatype='string' name='[City]' role='dimension' semantic-role='[City].[Name]' type='nominal'>
+      </column>
+      <column caption='Hospital Referral Region' datatype='string' name='[HospitalReferralRegion]' role='dimension' type='nominal'>
+      </column>
+      <column datatype='integer' name='[ID (OutpatientServices.csv)]' role='dimension' type='ordinal'>
+      </column>
+      <column datatype='integer' name='[ID (Providers.csv)]' role='dimension' type='ordinal'>
+      </column>
+      <column datatype='integer' name='[ID]' role='dimension' type='ordinal'>
+      </column>
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column caption='Outpatient Services' datatype='integer' name='[OutpatientServices]' role='measure' type='quantitative'>
+      </column>
+      <column caption='Provider ID' datatype='integer' name='[ProviderID]' role='dimension' type='ordinal'>
+      </column>
+      <column datatype='string' name='[State]' role='dimension' semantic-role='[State].[Name]' type='nominal'>
+      </column>
+      <column caption='Street Address' datatype='string' name='[StreetAddress]' role='dimension' type='nominal'>
+      </column>
+      <column datatype='integer' name='[Year]' role='dimension' type='quantitative'>
+      </column>
+      <column caption='Zip Code' datatype='integer' default-format='*00000' name='[ZipCode]' role='dimension' semantic-role='[ZipCode].[Name]' type='ordinal'>
+      </column>
+      <layout dim-ordering='alphabetic' dim-percentage='0.5' measure-ordering='alphabetic' measure-percentage='0.4' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+    </datasource>
+    <datasource caption='OutpatientVisits+ (2)' inline='true' name='textscan.41900.747126527800' version='8.3'>
+      <connection class='textscan' directory='/Users/alyshialedlie/Documents/Medicare' filename='OutpatientVisits.csv'>
+        <relation join='inner' type='join'>
+          <clause type='join'>
+            <expression op='='>
+              <expression op='[OutpatientVisits#csv].[ID]'>
+              </expression>
+              <expression op='[OutpatientServices#csv].[ID]'>
+              </expression>
+            </expression>
+          </clause>
+          <relation name='OutpatientVisits#csv' table='[OutpatientVisits#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+              <column datatype='integer' name='ID' ordinal='0' />
+              <column datatype='integer' name='APCID' ordinal='1' />
+              <column datatype='integer' name='ProviderID' ordinal='2' />
+              <column datatype='integer' name='OutpatientServices' ordinal='3' />
+              <column datatype='real' name='AverageSubmittedCharges' ordinal='4' />
+              <column datatype='real' name='AverageTotalPayments' ordinal='5' />
+              <column datatype='integer' name='Year' ordinal='6' />
+            </columns>
+          </relation>
+          <relation name='OutpatientServices#csv' table='[OutpatientServices#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+              <column datatype='integer' name='ID' ordinal='0' />
+              <column datatype='string' name='Description' ordinal='1' />
+            </columns>
+          </relation>
+        </relation>
+        <cols>
+          <map key='[APCID]' value='[OutpatientVisits#csv].[APCID]' />
+          <map key='[AverageSubmittedCharges]' value='[OutpatientVisits#csv].[AverageSubmittedCharges]' />
+          <map key='[AverageTotalPayments]' value='[OutpatientVisits#csv].[AverageTotalPayments]' />
+          <map key='[Description]' value='[OutpatientServices#csv].[Description]' />
+          <map key='[ID (OutpatientServices.csv)]' value='[OutpatientServices#csv].[ID]' />
+          <map key='[ID]' value='[OutpatientVisits#csv].[ID]' />
+          <map key='[OutpatientServices]' value='[OutpatientVisits#csv].[OutpatientServices]' />
+          <map key='[ProviderID]' value='[OutpatientVisits#csv].[ProviderID]' />
+          <map key='[Year]' value='[OutpatientVisits#csv].[Year]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>ID</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[ID]</local-name>
+            <parent-name>[OutpatientVisits#csv]</parent-name>
+            <remote-alias>ID</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>APCID</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[APCID]</local-name>
+            <parent-name>[OutpatientVisits#csv]</parent-name>
+            <remote-alias>APCID</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ProviderID</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[ProviderID]</local-name>
+            <parent-name>[OutpatientVisits#csv]</parent-name>
+            <remote-alias>ProviderID</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>OutpatientServices</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[OutpatientServices]</local-name>
+            <parent-name>[OutpatientVisits#csv]</parent-name>
+            <remote-alias>OutpatientServices</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>AverageSubmittedCharges</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[AverageSubmittedCharges]</local-name>
+            <parent-name>[OutpatientVisits#csv]</parent-name>
+            <remote-alias>AverageSubmittedCharges</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>AverageTotalPayments</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[AverageTotalPayments]</local-name>
+            <parent-name>[OutpatientVisits#csv]</parent-name>
+            <remote-alias>AverageTotalPayments</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Year</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Year]</local-name>
+            <parent-name>[OutpatientVisits#csv]</parent-name>
+            <remote-alias>Year</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name></remote-name>
+            <remote-type>0</remote-type>
+            <parent-name>[OutpatientVisits#csv]</parent-name>
+            <remote-alias></remote-alias>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ID</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[ID (OutpatientServices.csv)]</local-name>
+            <parent-name>[OutpatientServices#csv]</parent-name>
+            <remote-alias>ID</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Description</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Description]</local-name>
+            <parent-name>[OutpatientServices#csv]</parent-name>
+            <remote-alias>Description</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteCollation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4294967292</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name></remote-name>
+            <remote-type>0</remote-type>
+            <parent-name>[OutpatientServices#csv]</parent-name>
+            <remote-alias></remote-alias>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column aggregation='Sum' caption='Apcid' datatype='integer' name='[APCID]' role='dimension' type='ordinal'>
+      </column>
+      <column caption='Average Submitted Charges' datatype='real' name='[AverageSubmittedCharges]' role='measure' type='quantitative'>
+      </column>
+      <column caption='Average Total Payments' datatype='real' name='[AverageTotalPayments]' role='measure' type='quantitative'>
+      </column>
+      <column datatype='integer' name='[ID (OutpatientServices.csv)]' role='dimension' type='ordinal'>
+      </column>
+      <column datatype='integer' name='[ID]' role='dimension' type='ordinal'>
+      </column>
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column caption='Outpatient Services' datatype='integer' name='[OutpatientServices]' role='measure' type='quantitative'>
+      </column>
+      <column caption='Provider ID' datatype='integer' name='[ProviderID]' role='dimension' type='ordinal'>
+      </column>
+      <column datatype='integer' name='[Year]' role='dimension' type='quantitative'>
+      </column>
+      <layout dim-ordering='alphabetic' dim-percentage='0.5' measure-ordering='alphabetic' measure-percentage='0.4' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+    </datasource>
+    <datasource caption='EMP (C##CS347_ZI322)' inline='true' name='oracle.41900.727712650500' version='8.3'>
+      <connection authentication='RDBMS' class='oracle' port='1521' schema='C##CS347_ZI322' server='128.83.138.158' service='orcl' username='c##cs347_zi322'>
+        <relation name='EMP' table='[C##CS347_ZI322].[EMP]' type='table' />
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>EMPNO</remote-name>
+            <remote-type>131</remote-type>
+            <local-name>[EMPNO]</local-name>
+            <parent-name>[EMP]</parent-name>
+            <remote-alias>EMPNO</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>7</precision>
+            <scale>0</scale>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQLT_NUM&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ENAME</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[ENAME]</local-name>
+            <parent-name>[EMP]</parent-name>
+            <remote-alias>ENAME</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>0</scale>
+            <width>10</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation charset='1' flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQLT_CHR{charset=178,charform=1}&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>JOB</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[JOB]</local-name>
+            <parent-name>[EMP]</parent-name>
+            <remote-alias>JOB</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>0</scale>
+            <width>9</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation charset='1' flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQLT_CHR{charset=178,charform=1}&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>MGR</remote-name>
+            <remote-type>131</remote-type>
+            <local-name>[MGR]</local-name>
+            <parent-name>[EMP]</parent-name>
+            <remote-alias>MGR</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>4</precision>
+            <scale>0</scale>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQLT_NUM&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>HIREDATE</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[HIREDATE]</local-name>
+            <parent-name>[EMP]</parent-name>
+            <remote-alias>HIREDATE</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Year</aggregation>
+            <scale>0</scale>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQLT_DAT&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>SAL</remote-name>
+            <remote-type>131</remote-type>
+            <local-name>[SAL]</local-name>
+            <parent-name>[EMP]</parent-name>
+            <remote-alias>SAL</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>7</precision>
+            <scale>2</scale>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQLT_NUM&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>COMM</remote-name>
+            <remote-type>131</remote-type>
+            <local-name>[COMM]</local-name>
+            <parent-name>[EMP]</parent-name>
+            <remote-alias>COMM</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>7</precision>
+            <scale>2</scale>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQLT_NUM&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>DEPTNO</remote-name>
+            <remote-type>131</remote-type>
+            <local-name>[DEPTNO]</local-name>
+            <parent-name>[EMP]</parent-name>
+            <remote-alias>DEPTNO</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>2</precision>
+            <scale>0</scale>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQLT_NUM&quot;</attribute>
+            </attributes>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Comm' datatype='real' name='[COMM]' role='measure' type='quantitative'>
+      </column>
+      <column caption='Deptno' datatype='integer' name='[DEPTNO]' role='measure' type='quantitative'>
+      </column>
+      <column caption='Empno' datatype='integer' name='[EMPNO]' role='measure' type='quantitative'>
+      </column>
+      <column caption='Ename' datatype='string' name='[ENAME]' role='dimension' type='nominal'>
+      </column>
+      <column caption='Hiredate' datatype='datetime' name='[HIREDATE]' role='dimension' type='ordinal'>
+      </column>
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <layout dim-ordering='alphabetic' dim-percentage='0.5' measure-ordering='alphabetic' measure-percentage='0.4' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Sheet 1'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='EMP (C##CS347_ZI322)' name='oracle.41900.727712650500' />
+          </datasources>
+          <datasource-dependencies datasource='oracle.41900.727712650500'>
+            <column caption='Ename' datatype='string' name='[ENAME]' role='dimension' type='nominal'>
+            </column>
+            <column datatype='real' name='[SAL]' role='measure' type='quantitative'>
+            </column>
+            <column-instance column='[ENAME]' derivation='None' name='[none:ENAME:nk]' pivot='key' type='nominal' />
+            <column-instance column='[SAL]' derivation='None' name='[none:SAL:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+        </style>
+        <panes>
+          <pane>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+          </pane>
+        </panes>
+        <rows>[oracle.41900.727712650500].[none:SAL:qk]</rows>
+        <cols>[oracle.41900.727712650500].[none:ENAME:nk]</cols>
+      </table>
+    </worksheet>
+    <worksheet name='Sheet 2'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Providers+' name='textscan.41900.733258669000' />
+            <datasource caption='OutpatientVisits+ (2)' name='textscan.41900.747126527800' />
+          </datasources>
+          <datasource-dependencies datasource='textscan.41900.733258669000'>
+            <column caption='Hospital Referral Region' datatype='string' name='[HospitalReferralRegion]' role='dimension' type='nominal'>
+            </column>
+            <column datatype='string' name='[Name]' role='dimension' type='nominal'>
+            </column>
+            <column-instance column='[Name]' derivation='None' name='[none:Name:nk]' pivot='key' type='nominal' />
+          </datasource-dependencies>
+          <datasource-dependencies datasource='textscan.41900.747126527800'>
+            <column datatype='integer' name='[ID]' role='dimension' type='ordinal'>
+            </column>
+          </datasource-dependencies>
+          <filter class='categorical' column='[textscan.41900.733258669000].[none:Name:nk]'>
+            <groupfilter expression='COUNT([HospitalReferralRegion]) == 0' function='filter' user:ui-filter-by-field='true' user:ui-marker='filter-by'>
+              <groupfilter function='level-members' level='[none:Name:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[textscan.41900.733258669000].[none:Name:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+        </style>
+        <panes>
+          <pane>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows></rows>
+        <cols></cols>
+        <join-lod-exclude-overrides>
+          <column>[textscan.41900.747126527800].[ID]</column>
+        </join-lod-exclude-overrides>
+      </table>
+    </worksheet>
+    <worksheet name='Sheet 3'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Providers+' name='textscan.41900.733258669000' />
+          </datasources>
+          <datasource-dependencies datasource='textscan.41900.733258669000'>
+            <column datatype='string' name='[State]' role='dimension' semantic-role='[State].[Name]' type='nominal'>
+            </column>
+            <column-instance column='[State]' derivation='Count' name='[cnt:State:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[State]' derivation='None' name='[none:State:nk]' pivot='key' type='nominal' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+        </style>
+        <panes>
+          <pane>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows>[textscan.41900.733258669000].[cnt:State:qk]</rows>
+        <cols>[textscan.41900.733258669000].[none:State:nk]</cols>
+      </table>
+    </worksheet>
+    <worksheet name='Sheet 4'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='OutpatientVisits+' name='textscan.41900.744703298600' />
+          </datasources>
+          <datasource-dependencies datasource='textscan.41900.744703298600'>
+            <column caption='Apcid' datatype='integer' name='[APCID]' role='measure' type='quantitative'>
+            </column>
+            <column caption='Average Submitted Charges' datatype='real' name='[AverageSubmittedCharges]' role='measure' type='quantitative'>
+            </column>
+            <column caption='Average Total Payments' datatype='real' name='[AverageTotalPayments]' role='measure' type='quantitative'>
+            </column>
+            <column datatype='string' name='[Description]' role='dimension' type='nominal'>
+            </column>
+            <column datatype='integer' name='[ID]' role='dimension' type='ordinal'>
+            </column>
+            <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+              <calculation class='tableau' formula='1' />
+            </column>
+            <column caption='Outpatient Services' datatype='integer' name='[OutpatientServices]' role='measure' type='quantitative'>
+            </column>
+            <column-instance column='[AverageSubmittedCharges]' derivation='Avg' name='[avg:AverageSubmittedCharges:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Description]' derivation='None' name='[none:Description:nk]' pivot='key' type='nominal' />
+            <column-instance column='[ID]' derivation='None' name='[none:ID:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[APCID]' derivation='Sum' name='[sum:APCID:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[AverageSubmittedCharges]' derivation='Sum' name='[sum:AverageSubmittedCharges:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[AverageTotalPayments]' derivation='Sum' name='[sum:AverageTotalPayments:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Number of Records]' derivation='Sum' name='[sum:Number of Records:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[OutpatientServices]' derivation='Sum' name='[sum:OutpatientServices:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[textscan.41900.744703298600].[:Measure Names]'>
+            <groupfilter function='union' user:op='manual'>
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[textscan.41900.744703298600].[sum:APCID:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[textscan.41900.744703298600].[avg:AverageSubmittedCharges:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[textscan.41900.744703298600].[sum:AverageSubmittedCharges:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[textscan.41900.744703298600].[sum:AverageTotalPayments:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[textscan.41900.744703298600].[sum:Number of Records:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[textscan.41900.744703298600].[sum:OutpatientServices:qk]&quot;' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[textscan.41900.744703298600].[:Measure Names]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+        </style>
+        <panes>
+          <pane>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[textscan.41900.744703298600].[:Measure Names]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[textscan.41900.744703298600].[Multiple Values]</rows>
+        <cols>([textscan.41900.744703298600].[none:Description:nk] / ([textscan.41900.744703298600].[none:ID:ok] / [textscan.41900.744703298600].[:Measure Names]))</cols>
+      </table>
+    </worksheet>
+    <worksheet name='Sheet 5'>
+      <table>
+        <view>
+          <datasources>
+          </datasources>
+          <aggregation value='true' />
+        </view>
+        <style>
+        </style>
+        <panes>
+          <pane>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows></rows>
+        <cols></cols>
+      </table>
+    </worksheet>
+  </worksheets>
+  <dashboards>
+    <dashboard name='Dashboard 1'>
+      <style>
+      </style>
+      <size maxheight='800' maxwidth='1000' minheight='800' minwidth='1000' />
+      <zones>
+        <zone h='100000' id='2' type='layout-basic' w='100000' x='0' y='0'>
+          <zone h='100000' id='6' param='horz' type='layout-flow' w='100000' x='0' y='0'>
+            <zone h='100000' id='4' type='layout-basic' w='84000' x='0' y='0'>
+              <zone h='50000' id='1' name='Sheet 1' show-title='true' w='42000' x='0' y='50000'>
+              </zone>
+              <zone h='50000' id='3' name='Sheet 4' show-title='true' w='42000' x='42000' y='0'>
+              </zone>
+              <zone h='50000' id='8' name='Sheet 3' show-title='true' w='42000' x='0' y='0'>
+              </zone>
+              <zone h='50000' id='9' name='Sheet 2' show-title='true' w='42000' x='42000' y='50000'>
+              </zone>
+            </zone>
+            <zone fixed-size='160' h='100000' id='5' is-fixed='true' param='vert' type='layout-flow' w='16000' x='84000' y='0'>
+              <zone h='3500' id='7' name='Sheet 4' pane-specification-id='0' param='[textscan.41900.744703298600].[:Measure Names]' type='color' w='16000' x='84000' y='0'>
+              </zone>
+              <zone h='96000' id='10' name='Sheet 5' show-title='true' w='16000' x='84000' y='3500'>
+                <layout-cache type-h='scalable' type-w='fixed' />
+              </zone>
+            </zone>
+          </zone>
+        </zone>
+      </zones>
+    </dashboard>
+  </dashboards>
+  <windows>
+    <window class='schema' source-height='-1' />
+    <window auto-hidden='0' class='worksheet' maximized='0' name='Sheet 1'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='31'>
+            <card type='columns' />
+          </strip>
+          <strip size='31'>
+            <card type='rows' />
+          </strip>
+        </edge>
+      </cards>
+      <highlight>
+        <color-one-way>
+          <field>[oracle.41900.727712650500].[none:ENAME:nk]</field>
+          <field>[oracle.41900.727712650500].[none:JOB:nk]</field>
+        </color-one-way>
+      </highlight>
+    </window>
+    <window auto-hidden='0' class='worksheet' maximized='0' name='Sheet 4'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+            <card type='measures' />
+            <card pane-specification-id='0' param='[textscan.41900.744703298600].[:Measure Names]' type='color' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='31'>
+            <card type='columns' />
+          </strip>
+          <strip size='31'>
+            <card type='rows' />
+          </strip>
+        </edge>
+      </cards>
+      <highlight>
+        <color-one-way>
+          <field>[textscan.41900.744703298600].[:Measure Names]</field>
+          <field>[textscan.41900.744703298600].[none:Description:nk]</field>
+          <field>[textscan.41900.744703298600].[none:ID (OutpatientServices.csv):ok]</field>
+          <field>[textscan.41900.744703298600].[none:ID:ok]</field>
+          <field>[textscan.41900.744703298600].[none:ProviderID:ok]</field>
+        </color-one-way>
+      </highlight>
+    </window>
+    <window auto-hidden='0' class='worksheet' maximized='0' name='Sheet 3'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='31'>
+            <card type='columns' />
+          </strip>
+          <strip size='31'>
+            <card type='rows' />
+          </strip>
+        </edge>
+      </cards>
+      <highlight>
+        <color-one-way>
+          <field>[textscan.41900.733258669000].[none:State:nk]</field>
+        </color-one-way>
+      </highlight>
+    </window>
+    <window auto-hidden='0' class='worksheet' maximized='0' name='Sheet 2'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='31'>
+            <card type='columns' />
+          </strip>
+          <strip size='31'>
+            <card type='rows' />
+          </strip>
+        </edge>
+      </cards>
+      <highlight>
+        <color-one-way>
+          <field>[oracle.41900.727712650500].[none:JOB:nk]</field>
+          <field>[oracle.41900.727712650500].[yr:HIREDATE:ok]</field>
+          <field>[textscan.41900.733258669000].[avg:AverageSubmittedCharges:qk]</field>
+          <field>[textscan.41900.733258669000].[none:APCID:ok]</field>
+          <field>[textscan.41900.733258669000].[none:DRGID:ok]</field>
+          <field>[textscan.41900.733258669000].[none:ID:ok]</field>
+          <field>[textscan.41900.733258669000].[none:Name:nk]</field>
+          <field>[textscan.41900.733258669000].[none:ProviderID (InpatientVisits.csv):ok]</field>
+          <field>[textscan.41900.733258669000].[none:ProviderID:ok]</field>
+          <field>[textscan.41900.733258669000].[none:SurveyID:nk]</field>
+          <field>[textscan.41900.733258669000].[sum:AverageSubmittedCharges:qk]</field>
+          <field>[textscan.41900.744703298600].[none:State:nk]</field>
+          <field>[textscan.41900.747126527800].[none:APCID:ok]</field>
+          <field>[textscan.41900.747126527800].[none:ID:ok]</field>
+        </color-one-way>
+      </highlight>
+    </window>
+    <window auto-hidden='0' class='worksheet' maximized='1' name='Sheet 5'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='31'>
+            <card type='columns' />
+          </strip>
+          <strip size='31'>
+            <card type='rows' />
+          </strip>
+        </edge>
+      </cards>
+    </window>
+    <window auto-hidden='0' class='dashboard' maximized='0' name='Dashboard 1'>
+      <active id='3' />
+      <zones>
+        <zone name='Sheet 1'>
+          <viewpoint>
+            <zoom type='entire-view' />
+          </viewpoint>
+        </zone>
+        <zone name='Sheet 4'>
+          <viewpoint>
+            <zoom type='entire-view' />
+          </viewpoint>
+          <highlight>
+            <color-one-way>
+              <field>[textscan.41900.744703298600].[:Measure Names]</field>
+            </color-one-way>
+          </highlight>
+        </zone>
+        <zone name='Sheet 3'>
+          <viewpoint>
+            <zoom type='entire-view' />
+          </viewpoint>
+        </zone>
+        <zone name='Sheet 4' pane-specification-id='0' param='[textscan.41900.744703298600].[:Measure Names]' type='color' />
+      </zones>
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Sheet 1' width='192'>
+      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
+      4wAAAABJRU5ErkJggg==
+    </thumbnail>
+    <thumbnail height='192' name='Sheet 3' width='192'>
+      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
+    </thumbnail>
+    <thumbnail height='144' name='Sheet 2' width='174'>
+      iVBORw0KGgoAAAANSUhEUgAAAK4AAACQCAYAAACRfFAzAAAACXBIWXMAAA7DAAAOwwHHb6hk
+      AAADjUlEQVR4nO3YMUiUcRzG8cfwdehtuCmHbtAgPegWl26pxaWG3sXgCuwCMcIpUAcLrMgE
+      cTBBHEQQBycHb0iHc7mlW27RReG4xQYdcsnlFt/hGqRwMgl5r4e+n/H3wp/fC1/+vLxtzWaz
+      KcDMtVYvAPwNwoUlwoUlwoUlwoUlwoUlwoUlwoUlwoUlwoUlwoUlwoUlwoUlwoUlwoUlwoUl
+      woUlwoUlwoUlwoUlwoUlwoUlwoUlwoUlwoUlwoUlwoUlwoUlwoUlwoUlwoUlwoUlwoUlwoUl
+      woUlwoUlwoUlwoUlwoUlwoUlwoUlwoUlwoUlwoUlwoUlwoUlwoWl9lYvkJRardbqFXCF/ptw
+      JSmTybR6BVwRPhVgiXBhiXBhiXBhiXBhiXBhiXBhiXBhiXBhiXBhiXBhiXBhiXBhiXBhiXBh
+      iXBhiXBhiXBhiXBhiXBhiXBhiXBhiXBhiXBhiXBhiXBhiXBhiXBhiXBhiXBhiXBhiXBhiXBh
+      iXBhiXBhiXBhiXBhiXBhiXBhiXBhiXBhiXBhiXBhiXBhiXCRsIbWxvLK5z/q4Ny0Ojekobmv
+      lz6FcJGso7JKh5K0r2L5+Pf4VNKpOi59TPuVLwZcoLpRVJyONHKnqqX1TTX6hxVK6gg6FFcW
+      NJiPFUu6G43rQyEnqaHthSmtVM7u53SuoE/jETcuklRXsdJQ7ukz9b+IFPzY1tZBfO55p4Zn
+      l7X49onqm3Naq8c6Li9opXKiwvSyVmcL+l5d01L1hBsXSYm1PjapgzCt66Upvdtq1+10qI2J
+      UXWtLkrxqYK+5+rvTkka0KObGyqXdtTV2FOQe62oJyUp0vJ8r44UEC4SclzWl0Mpmv6sQs+v
+      4Z7G8lMqbtU1EHQo3qmoHj9Q92FZ5WPp3khWnfudijeK2j3JqS/Y1cTojMLCPOEiGbubm4qD
+      nB72nJ9m9TgXaqlUUqMvUHDjmyYH85Kk9P0RvcyGCrJvFO1NaObV2TzsjfQ+uqW2ZrPZTP41
+      kler1ZTJZFq9Bv4gbpyooVCpMLhwzo2Lf0oQppS6xJy/CrBEuLBEuLBEuLBEuLBEuLBEuLBE
+      uLBEuLBEuLBEuLBEuLBEuLBEuLBEuLBEuLBEuLBEuLBEuLBEuLBEuLBEuLBEuLBEuLBEuLBE
+      uLBEuLBEuLBEuLBEuLBEuLBEuLBEuLBEuLBEuLBEuLBEuLBEuLBEuLBEuLBEuLD0E+xrnEYC
+      jRqwAAAAAElFTkSuQmCC
+    </thumbnail>
+    <thumbnail height='144' name='Sheet 5' width='174'>
+      iVBORw0KGgoAAAANSUhEUgAAAK4AAACQCAYAAACRfFAzAAAACXBIWXMAAA7DAAAOwwHHb6hk
+      AAABmUlEQVR4nO3SQQ0AIBDAMMC/58MDH7KkVbDH9szMgpjzOwBeGJck45JkXJKMS5JxSTIu
+      ScYlybgkGZck45JkXJKMS5JxSTIuScYlybgkGZck45JkXJKMS5JxSTIuScYlybgkGZck45Jk
+      XJKMS5JxSTIuScYlybgkGZck45JkXJKMS5JxSTIuScYlybgkGZck45JkXJKMS5JxSTIuScYl
+      ybgkGZck45JkXJKMS5JxSTIuScYlybgkGZck45JkXJKMS5JxSTIuScYlybgkGZck45JkXJKM
+      S5JxSTIuScYlybgkGZck45JkXJKMS5JxSTIuScYlybgkGZck45JkXJKMS5JxSTIuScYlybgk
+      GZck45JkXJKMS5JxSTIuScYlybgkGZck45JkXJKMS5JxSTIuScYlybgkGZck45JkXJKMS5Jx
+      STIuScYlybgkGZck45JkXJKMS5JxSTIuScYlybgkGZck45JkXJKMS5JxSTIuScYlybgkGZck
+      45JkXJKMS5JxSTIuScYlybgkGZck45JkXJKMS5JxSTIuSRePYgUc7kJNEQAAAABJRU5ErkJg
+      gg==
+    </thumbnail>
+    <thumbnail height='192' name='Dashboard 1' width='192'>
+      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
+      pDD+H+4l7Awm9kH0AAAAAElFTkSuQmCC
+    </thumbnail>
+  </thumbnails>
+</workbook>

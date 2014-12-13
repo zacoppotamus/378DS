@@ -1,0 +1,178 @@
+---
+title: "Medicare Presentation"
+output: slidy_presentation
+---
+##Cost of Medical Care
+Medical care in the United States cost Americans an average of approximately 8,500 per person per year, the equivalent of 18% of US GDP annually.  This is by far the most of any country in the world, both as a dollar ammount and as a percentage of GDP.  Most of this cost comes from emergency medical care and scheduled care at hospital facilities.
+
+##RProject
+Although our health care purchases are arguably the most important ones we will make as consumers, there is remarkably little information on how much different medical procedures cost and what we are receiving in exchange for our money.  Supposedly higher quality of care is more expensive, but is this actually true?  We used R and Tableau to explore these disparities in the cost of care and their relationship to care quality.
+
+```{r}
+source("RPlots/ConnectToOracle.R", echo = TRUE)
+```
+
+##Queries 
+We ran these querries to Import Data into R from the ds_medicare database.
+```{r}
+source("RPlots/SQLQuerries.R", echo = TRUE)
+```
+
+##Hospital Procedure Costs
+```{r}
+source("RPlots/Plots2.R", echo = TRUE)
+```
+
+##Health Care Costs: Closer to Home
+Even within Austin, there is a wide disparity in the cost of care, shown here for both insured and uninsured patients and by procedure:
+
+![](Screenshots/Inpatient-Insured.jpg)
+![](Screenshots/Inpatient-Uninsured.jpg)
+
+##Hospital Cost and Patient Volume
+We did find that higher cost was somewhat positively correlated with hospital volume (the number of patients seen):
+
+![](Screenshots/VolumeAndCost.jpg)
+
+And slightly more so nationally:
+
+![](Screenshots/VolumeVSCostTexas.jpg)
+
+##Hosptial Cost and Patient Quality
+And although we found that higher cost also had a slight correlation with hospital quality locally:
+![](Screenshots/AustinCopayRating.jpg)
+![](Screenshots/TotalInsuredVSQuality.jpg)
+
+##At National Level, no correlation between hospital quality and cost:
+...that correlation dropped off when the view was expanded to the national level:
+![](Screenshots/TotalInsuredVSQualityNational.jpg)
+
+##So other than patient volume, is there anything else we can point to to explain such wide disparities in cost as this?
+And we can see by breaking the data down by procedure that that different procedure specializations between hospitals also aren't the driving factor in cost disparity.  In fact, the only thing positively cooralated here is the cost for insured patients to the cost for uninsured patients.
+
+![](Screenshots/UninsuredVSInsured.jpg)
+
+
+##Factors Affecting Medicare Costs and Copay
+To find other possible correlations with high cost, we wanted to see if there were any states that stood out with higher costs in both Medicare reinbursements and patient copay costs and see if we could find any common factors among these high-cost states.
+
+##Clustering on Medicare Costs and Copay
+![](img/Pics/clusters.png)  
+
+##Medicare Payments (highest cluster)
+*WY, *SD, OR, NY, NJ, MA, *ID, HI, DE, DC, CT, CA, AZ, *AK
+![](img/Pics/Medicarecost.png)
+
+##Copay (highest cluster)
+*WY, UT, *SD, NV, *ID, HI, *AK
+![](img/Pics/Copaycost.png)
+
+##Combined Cluster (highest cluster)
+*WY, UT, *SD, NV, *ID, HI, *AK
+![](img/Pics/combinedcluster.png)
+
+##Total Cost
+Intersection of the highest Medicare and Copay clusters yielded 4 states: Wyoming, Alaska, South Dakota, and Idaho.  These states with high costs for insured patients tended towards voting Democratic and have low populations. 
+
+![](Screenshots/Population.jpg)
+![](img/pics/pres.png)
+
+##Our most extreme outlier as well as the only Republican state, Wyoming, also had the fewest Medicare procedures per person and the highest number of physicians per person.
+![](Screenshots/procedures:population.png)
+![](Screenshots/drs:person.png)
+
+##Cost and Health Care Access
+We also found that, possibly because of the high cost of medical care, there were a large number of people forgoing medical care because of cost.
+
+![](Screenshots/ForgoCare2.jpg)
+![](Screenshots/ForgoCare.jpg)
+
+##Cost and Health Care Access
+And that the people who needed health care the most were the least likely to receive it.
+
+![](Screenshots/ForgoHealth.jpg)
+
+##Cost and Health Care Access
+They also tend to be poor, uninsured, and have poor mental health.
+
+![](Screenshots/ForgoIncome.jpg)
+![](Screenshots/ForgoInsured.jpg)
+![](Screenshots/ForgoMental.jpg)
+
+##Medicare and Health Care Access
+This was less true for those 65 and older, however, who were the least likely age group to forgo medical care because of cost. 
+
+![](Screenshots/ForgoAge.jpg)
+
+##Medicare and Health Care Access
+Being over 62 was also a factor for falling into the group we found was most likely to receive care at 98.81%
+
+![](Screenshots/MostLikely.png)
+
+##Medicare and Health Care Access
+However, those uninsured and 65 and over fell into the group of people least likely to receive care.
+Node 85 was the least likely group to receive care, at 82.65%.
+
+![](Screenshots/LeastLikely.png)
+
+##Medicare and Health Care Access
+Purely in terms of access and total cost, then, we can say that the Medicare program has been extremely successful in ensuring access to health care for the vulnerable population of seniors.
+
+##Case Study: Depression
+In our research, we also wanted to identify factors with high correlation to the existence of depression or other mental health disorders.
+
+###Dataset
+The dataset which was used included answers from a phone survey that took place in 2011-2012. Most questions related to behaviors resulting in leading causes of premature mortality and morbidity among adults. Over 139,000 responses were collected to 177 such questions. 
+
+##Selected Attributes
+18 attributes were chosen and extracted from the dataset as the basis of our examination in order to determine which factors have the highest correlation to mental disorders or depression. After all null values were eliminated from our selection, we had a remaining 108.544 rows.
+
+| Attribute  | Meaning |
+| ------------- | ------------- |
+| ADDEPEV2  | Ever told you had a depressive disorder?  |
+| AGE  | Age  |
+| EDUCAG  | Level of education (1-4)  |
+| EMPLOY  | Employment Status (1-5)  |
+| EXERANY1  | Exercise in past 30 days |
+| GENHLTH  | Would you say that in general your health is? (1-5; Excellent-Poor)  |
+| HLTHPLN1  | Do you have any kind of health coverage?  |
+| INCOME2  | Income Level (1-8) |
+| INCOMG  | Computed Income Categories (1-5) |
+| MEDCOST  | Was there a time in the past 12 months, when you could not see a doctor because of the cost?  |
+| RFBING5  | Binge Drinking Calculated Variable  |
+| RFBMI5  | Overweight or obese calculated variable (BMI > 25.0)  |
+| RFDRHV4  | Heavy Alcohol Consumption Calculated Variable  |
+| RFHLTH  | Adults with good or better health  |
+| RFSMOK3  | Adults who are currently smokers  |
+| SEX  | Sex  |
+| VETERAN3  | Are you a veteran? |
+
+##Oracle Data Miner Workflow
+![](img/dataMinerWorkflow.png)
+
+##Filtering Null Values
+![](img/depFilterNull.png)
+
+##Explore Data Node on Filtered Values
+![](img/depFilteredExploreData.png)
+
+##Depression Clustering
+![](img/depClusterBuild.png)
+![](img/depClusterInputs.png)
+
+##Feature Build Node
+
+![](img/depFeatureBuild.png)
+
+####NMF Feature Build Coefficients
+Each feature created by NMF is a linear combination of the original attribute set. Each 
+feature has a set of coefficients, which are a measure of the weight of each attribute on 
+the feature. There is a separate coefficient for each numerical attribute and for each 
+distinct value of each categorical attribute. The coefficients are all non-negative.
+
+![](img/depFeatureResultsNMF.png)
+
+##Plots and Graphs
+![](img/extendedDepression.jpg)
+![](img/ageEducationSex.jpg)
+![](img/veteransSmokersBMI.jpg)
