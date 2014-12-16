@@ -1,6 +1,9 @@
 ---
 title: "Medicare Presentation"
-output: slidy_presentation
+output:
+  html_document:
+    toc: true
+    theme: united
 ---
 ##Cost of Medical Care
 Medical care in the United States cost Americans an average of approximately 8,500 per person per year, the equivalent of 18% of US GDP annually.  This is by far the most of any country in the world, both as a dollar ammount and as a percentage of GDP.  Most of this cost comes from emergency medical care and scheduled care at hospital facilities.
@@ -87,12 +90,10 @@ We also found that, possibly because of the high cost of medical care, there wer
 ![](Screenshots/ForgoCare2.jpg)
 ![](Screenshots/ForgoCare.jpg)
 
-##Cost and Health Care Access
 And that the people who needed health care the most were the least likely to receive it.
 
 ![](Screenshots/ForgoHealth.jpg)
 
-##Cost and Health Care Access
 They also tend to be poor, uninsured, and have poor mental health.
 
 ![](Screenshots/ForgoIncome.jpg)
@@ -104,18 +105,15 @@ This was less true for those 65 and older, however, who were the least likely ag
 
 ![](Screenshots/ForgoAge.jpg)
 
-##Medicare and Health Care Access
 Being over 62 was also a factor for falling into the group we found was most likely to receive care at 98.81%
 
 ![](Screenshots/MostLikely.png)
 
-##Medicare and Health Care Access
 However, those uninsured and 65 and over fell into the group of people least likely to receive care.
 Node 85 was the least likely group to receive care, at 82.65%.
 
 ![](Screenshots/LeastLikely.png)
 
-##Medicare and Health Care Access
 Purely in terms of access and total cost, then, we can say that the Medicare program has been extremely successful in ensuring access to health care for the vulnerable population of seniors.
 
 ##Case Study: Depression
